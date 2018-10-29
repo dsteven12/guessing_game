@@ -1,9 +1,21 @@
 from random import randint
-guess = int(input("Guess a number between 1 and 10: "))
+guess = None
 number = randint(1,10)
-while(guess != number):
-    if (guess > number):
-        guess = int(input("Your number was too high, guess again... "))
-    else: 
-        guess = int(input("Your number was too low, guess again... "))
-print(f"You guessed it! The number is {number}")
+
+while True:
+    guess = int(input("Pick a number from 1 to 10: "))
+    if (guess < number):
+        print("Too low!")
+    elif(guess > number):
+        print("Too high!")
+    else:
+        print("You won!!!")
+        print(number)
+        play_again = input("Do you want to play again? (y/n) ")
+        if (play_again == "y"):
+            number = randint(1,10)
+            guess = None
+        else: 
+            print("Thank you for playing!")
+            break
+
